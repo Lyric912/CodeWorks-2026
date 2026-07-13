@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rainbow LED Control Panel</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(
+        -45deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #00ffff,
+        #0000ff,
+        #8b00ff
+    );
+    background-size: 400% 400%;
+    animation: rainbow 12s ease infinite;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 3em;
+    text-shadow: 0 0 15px white;
+}
+
+.led-card {
+    width: 320px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 12px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+.led-card h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+button {
+    border: none;
+    padding: 12px 28px;
+    margin: 8px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+button[value="on"] {
+    background: linear-gradient(45deg, #00ff66, #00ccff);
+}
+
+button[value="off"] {
+    background: linear-gradient(45deg, #ff0066, #9900ff);
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 18px white;
+}
+</style>
+
+</head>
+<body>
+
+<h1>🌈 LED Control Panel 🌈</h1>
+
+<div class="led-card">
+    <h2>LED 1</h2>
+    <form method="POST" action="/control">
+        <input type="hidden" name="led" value="1">
+        <button name="action" value="on">ON</button>
+        <button name="action" value="off">OFF</button>
+    </form>
+</div>
+
+<div class="led-card">
+    <h2>LED 2</h2>
+    <form method="POST" action="/control">
+        <input type="hidden" name="led" value="2">
+        <button name="action" value="on">ON</button>
+        <button name="action" value="off">OFF</button>
+    </form>
+</div>
+
+<div class="led-card">
+    <h2>LED 3</h2>
+    <form method="POST" action="/control">
+        <input type="hidden" name="led" value="3">
+        <button name="action" value="on">ON</button>
+        <button name="action" value="off">OFF</button>
+    </form>
+</div>
+
+<div class="led-card">
+    <h2>LED 4</h2>
+    <form method="POST" action="/control">
+        <input type="hidden" name="led" value="4">
+        <button name="action" value="on">ON</button>
+        <button name="action" value="off">OFF</button>
+    </form>
+</div>
+
+<div class="led-card">
+    <h2>LED 5</h2>
+    <form method="POST" action="/control">
+        <input type="hidden" name="led" value="5">
+        <button name="action" value="on">ON</button>
+        <button name="action" value="off">OFF</button>
+    </form>
+</div>
+
+<div class="led-card">
+    <h2>LED 6</h2>
+    <form method="POST" action="/control">
+        <input type="hidden" name="led" value="6">
+        <button name="action" value="on">ON</button>
+        <button name="action" value="off">OFF</button>
+    </form>
+</div>
+
+</body>
+</html>
